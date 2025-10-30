@@ -1,0 +1,152 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Inter, sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.grid {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas:
+            "header header header header women-1 women-1 women-1 women-2 women-2 women-3 women-3"
+            "header header header header women-1 women-1 women-1 women-2 women-2 women-3 women-3"
+            "header header header header women-1 women-1 women-1 door door red_block red_block"
+            "header header header header women-1 women-1 women-1 door door red_block red_block"
+            "subtitle subtitle subtitle subtitle coffee coffee brown_block door door man man"
+            "subtitle subtitle subtitle subtitle coffee coffee brown_block door  door man man";
+}
+
+.header__contact-list{
+    display: flex;
+    gap: 30px;
+    flex-wrap: nowrap;
+}
+
+.grid > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.grid img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.header {
+    text-align: center;
+    grid-area: header;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 170%;
+    padding: 48px;
+    justify-content: space-between;
+}
+
+.women-1 {
+    grid-area: women-1;
+}
+
+.women-2 {
+    grid-area: women-2;
+}
+
+.women-3 {
+    grid-area: women-3;
+}
+
+.subtitle {
+    grid-area: subtitle;
+    font-weight: 300;
+    font-size: 18px;
+    padding: 48px;
+    color: #F2F2F2;
+    background-color: #828282;
+}
+
+.coffee {
+    grid-area: coffee;
+}
+
+.brown-block {
+    grid-area: brown_block;
+    background-color: #A6806B;
+}
+
+.door {
+    grid-area: door;
+}
+
+.red-block {
+    grid-area: red_block;
+    background-color: #A61C1C;
+}
+
+.man {
+    grid-area: man;
+}
+
+@media (width <= 1200px) {
+    .grid {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas:
+            "header header header women-1 women-1"
+            "header header header women-1 women-1"
+            "header header header women-1 women-1"
+            "subtitle subtitle subtitle women-2 women-3"
+            "red_block red_block coffee brown_block door"
+            "man       man       coffee brown_block door"
+            "man       man       coffee brown_block door";
+    }
+
+    .header {
+        min-height: 70vh;
+    }
+
+    .women-1 {
+        min-height: 70vh;
+    }
+}
+
+@media (width <= 768px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "header header"
+            "women-1 women-1"
+            "subtitle subtitle"
+            "women-2 women-3"
+            "red_block red_block"
+            "man man"
+            "coffee brown_block"
+            "door door";
+    }
+
+    .header {
+        font-size: 28px;
+    }
+
+    .red-block {
+        height: 10vh;
+    }
+
+    .coffee, .brown-block, .man, .women-2, .women-3 {
+        height: 30vh;
+    }
+
+    .door{
+        height: 80vh;
+    }
+}
